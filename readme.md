@@ -1,3 +1,5 @@
+![PyStan-CI](https://github.com/yiyuezhuo/PyStan.jl/workflows/PyStan-CI/badge.svg)
+
 # Lightweight wrapper for PyStan using PyCall
 
 `cmdstan` is hard to setup compared to `pystan` in Windows, so this package is made to provide a easier to use wrapper.
@@ -73,7 +75,7 @@ sm = PyStan.load_model("test.pkl")
 
 ## Why not just using `PyCall`?
 
-`PyCall` seems not working for Python `multiprocessing`, at least on Windows, see this [issue](https://github.com/JuliaPy/PyCall.jl/issues/755). This mechanism is used by `PyStan` to support parallel sampling (`n_chains > 1`). So I use Julia builtin parallel computing method to run some `n_chains = 1` tasks and merge them using `arviz`. Hope it will make usage a little easier.
+`PyCall` seems not working for Python `multiprocessing`, at least on Windows, see this [issue](https://github.com/JuliaPy/PyCall.jl/issues/755). This mechanism is used by `PyStan` to support parallel sampling (`n_chains > 1`), hence I use Julia builtin parallel computing method to run some `n_chains = 1` tasks and merge them using `arviz`. Hope it will make usage a little easier.
 
 ## Pitfall
 
